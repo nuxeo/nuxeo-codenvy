@@ -14,15 +14,26 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy;
+package org.nuxeo.codenvy.action;
 
-import com.codenvy.ide.api.extension.ExtensionGinModule;
-import com.google.gwt.inject.client.AbstractGinModule;
+import com.codenvy.ide.api.action.Action;
+import com.codenvy.ide.api.action.ActionEvent;
+import com.google.gwt.user.client.Window;
 
-@ExtensionGinModule
-public class NuxeoModule extends AbstractGinModule {
+public class AutomationOperationAction extends Action {
 
-    @Override
-    protected void configure() {
+    public static final String TITLE = "Nuxeo Automation Operation";
+
+    public static final String DESCRIPTION = "Create a new Nuxeo Automation " +
+            "operation.";
+
+    public AutomationOperationAction() {
+        // TODO ENVY-6: SET ICON
+        super(TITLE, DESCRIPTION);
+    }
+
+    public void actionPerformed(ActionEvent event) {
+        String txt = Window.prompt("Create a new operation with name:", "");
+        Window.alert("Hello, " + txt + "!\n I am glad to see you.");
     }
 }
