@@ -32,6 +32,10 @@
   <dependencies>
     <dependency>
       <groupId>com.codenvy.ide</groupId>
+      <artifactId>codenvy-ext-runner</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.codenvy.ide</groupId>
       <artifactId>codenvy-ide-api</artifactId>
     </dependency>
   </dependencies>
