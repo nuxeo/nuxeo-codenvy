@@ -14,28 +14,23 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy.action;
+package org.nuxeo.codenvy;
 
-import com.codenvy.ide.api.action.Action;
-import com.codenvy.ide.api.action.ActionEvent;
-import com.google.gwt.user.client.Window;
-import org.nuxeo.codenvy.NuxeoResource;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.resources.client.ClientBundle;
+import com.google.gwt.resources.client.ImageResource;
 
 /**
- * Automation operation action to generate a new operation contribution.
+ * Nuxeo Codenvy plugin resources
  */
-public class AutomationOperationAction extends Action {
+public interface NuxeoResource extends ClientBundle {
 
-    public static final String TITLE = "Nuxeo Automation Operation";
+    public static final NuxeoResource INSTANCE = GWT.create(NuxeoResource
+            .class);
 
-    public static final String DESCRIPTION = "Create a new Nuxeo Automation " +
-            "operation.";
+    @Source("nx.gif")
+    public ImageResource nx();
 
-    public AutomationOperationAction() {
-        super(TITLE, DESCRIPTION, NuxeoResource.INSTANCE.operation());
-    }
-
-    public void actionPerformed(ActionEvent event) {
-        Window.prompt("Create a new operation with name:", "");
-    }
+    @Source("operation.gif")
+    public ImageResource operation();
 }
