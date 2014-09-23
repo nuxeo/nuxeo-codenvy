@@ -18,8 +18,12 @@
 -->
 <module>
   <inherits name="com.google.gwt.user.User"/>
+  <inherits name="com.google.gwt.http.HTTP"/>
+  <inherits name="com.google.gwt.i18n.I18N"/>
+  <inherits name="com.google.gwt.json.JSON"/>
   <inherits name="com.codenvy.ide.Api"/>
   <inherits name="com.google.gwt.inject.Inject"/>
   <inherits name="com.codenvy.ide.extension.runner.Runner"/>
-  <source path=""/>
+  <source path="client"/>
+  <source path="shared"/>
 </module>

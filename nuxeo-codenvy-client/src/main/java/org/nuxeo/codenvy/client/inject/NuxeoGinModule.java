@@ -2,10 +2,8 @@
  * (C) Copyright 2014 Nuxeo SA (http://nuxeo.com/) and contributors.
  *
  *       All rights reserved. This program and the accompanying materials
- *       are made available under the terms of the GNU Lesser General Public
- *       License
- *       (LGPL) version 2.1 which accompanies this distribution,
- *       and is available at
+ *       are made available under the terms of the GNU Lesser General Public License
+ *       (LGPL) version 2.1 which accompanies this distribution, and is available at
  *       http://www.gnu.org/licenses/lgpl-2.1.html
  *
  *       This library is distributed in the hope that it will be useful,
@@ -16,23 +14,20 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy.inject;
+package org.nuxeo.codenvy.client.inject;
 
+import com.codenvy.ide.api.extension.ExtensionGinModule;
 import com.codenvy.ide.api.wizard.DefaultWizard;
-import com.codenvy.ide.api.wizard.DefaultWizardFactory;
-import com.google.inject.Inject;
-import com.google.inject.Provider;
+import com.google.gwt.inject.client.AbstractGinModule;
+import com.google.inject.Singleton;
 
-public class BundleWizardProvider implements Provider<DefaultWizard> {
-    private DefaultWizardFactory wizardFactory;
-
-    @Inject
-    public BundleWizardProvider(DefaultWizardFactory wizardFactory) {
-        this.wizardFactory = wizardFactory;
-    }
+/**
+ * Nuxeo Module.
+ */
+@ExtensionGinModule
+public class NuxeoGinModule extends AbstractGinModule {
 
     @Override
-    public DefaultWizard get() {
-        return wizardFactory.create("Wizard");
+    protected void configure() {
     }
 }

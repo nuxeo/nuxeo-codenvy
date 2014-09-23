@@ -2,10 +2,8 @@
  * (C) Copyright 2014 Nuxeo SA (http://nuxeo.com/) and contributors.
  *
  *       All rights reserved. This program and the accompanying materials
- *       are made available under the terms of the GNU Lesser General Public
- *       License
- *       (LGPL) version 2.1 which accompanies this distribution,
- *       and is available at
+ *       are made available under the terms of the GNU Lesser General Public License
+ *       (LGPL) version 2.1 which accompanies this distribution, and is available at
  *       http://www.gnu.org/licenses/lgpl-2.1.html
  *
  *       This library is distributed in the hope that it will be useful,
@@ -16,21 +14,14 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy.inject;
+package org.nuxeo.codenvy.shared;
 
-import com.google.inject.BindingAnnotation;
+public interface ProjectAttributes {
+    String NUXEO_ID             = "nuxeo";
+    String NUXEO_NAME           = "Nuxeo Project";
+    String NUXEO_CATEGORY       = "Nuxeo";
+    String NUXEO_DEFAULT_RUNNER = "nuxeo-server";
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-/**
- *
- */
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD, ElementType.PARAMETER, ElementType.METHOD,
-        ElementType.TYPE })
-@BindingAnnotation
-public @interface NuxeoWizard {
+    String NUXEO_PROJECT_TEMPLATE = "nuxeo.project.template";
+    String NUXEO_DEFAULT_TEMPLATE = "default";
 }

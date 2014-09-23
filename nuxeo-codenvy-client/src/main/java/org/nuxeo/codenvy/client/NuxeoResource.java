@@ -2,10 +2,8 @@
  * (C) Copyright 2014 Nuxeo SA (http://nuxeo.com/) and contributors.
  *
  *       All rights reserved. This program and the accompanying materials
- *       are made available under the terms of the GNU Lesser General Public
- *       License
- *       (LGPL) version 2.1 which accompanies this distribution,
- *       and is available at
+ *       are made available under the terms of the GNU Lesser General Public License
+ *       (LGPL) version 2.1 which accompanies this distribution, and is available at
  *       http://www.gnu.org/licenses/lgpl-2.1.html
  *
  *       This library is distributed in the hope that it will be useful,
@@ -16,22 +14,23 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy.inject;
+package org.nuxeo.codenvy.client;
 
-import com.codenvy.ide.api.extension.ExtensionGinModule;
-import com.codenvy.ide.api.wizard.DefaultWizard;
-import com.google.gwt.inject.client.AbstractGinModule;
-import com.google.inject.Singleton;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.resources.client.ClientBundle;
+import com.google.gwt.resources.client.ImageResource;
 
 /**
- * Nuxeo Module.
+ * Nuxeo Codenvy plugin resources
  */
-@ExtensionGinModule
-public class NuxeoModule extends AbstractGinModule {
+public interface NuxeoResource extends ClientBundle {
 
-    @Override
-    protected void configure() {
-        bind(DefaultWizard.class).annotatedWith(NuxeoWizard.class).toProvider
-                (BundleWizardProvider.class).in(Singleton.class);
-    }
+    public static final NuxeoResource INSTANCE = GWT.create(NuxeoResource
+            .class);
+
+    @Source("nx.gif")
+    public ImageResource nx();
+
+    @Source("operation.gif")
+    public ImageResource operation();
 }

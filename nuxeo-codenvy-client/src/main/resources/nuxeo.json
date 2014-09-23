@@ -1,0 +1,22 @@
+[
+    {
+        "displayName": "NUXEO",
+        "category": "Nuxeo",
+        "description": "A simple Nuxeo server bundle.",
+        "source": {
+            "type": "git",
+            "location": "https://github.com/vpasquier/nuxeo-codenvy-template.git",
+            "parameters": {
+                "branch": "master",
+                "cleanVcs": "true"
+            }
+        },
+        "defaultRunnerEnvironment": "nuxeo",
+        "runnerEnvironmentConfigurations": {
+            "default": {
+                "recommendedMemorySize": 512
+            }
+        },
+        "runnerName": "nuxeo-runner"
+    }
+]

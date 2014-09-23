@@ -2,10 +2,8 @@
  * (C) Copyright 2014 Nuxeo SA (http://nuxeo.com/) and contributors.
  *
  *       All rights reserved. This program and the accompanying materials
- *       are made available under the terms of the GNU Lesser General Public
- *       License
- *       (LGPL) version 2.1 which accompanies this distribution,
- *       and is available at
+ *       are made available under the terms of the GNU Lesser General Public License
+ *       (LGPL) version 2.1 which accompanies this distribution, and is available at
  *       http://www.gnu.org/licenses/lgpl-2.1.html
  *
  *       This library is distributed in the hope that it will be useful,
@@ -16,12 +14,12 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy.action;
+package org.nuxeo.codenvy.client.action;
 
 import com.codenvy.ide.api.action.Action;
 import com.codenvy.ide.api.action.ActionEvent;
 import com.google.gwt.user.client.Window;
-import org.nuxeo.codenvy.NuxeoResource;
+import org.nuxeo.codenvy.client.NuxeoResource;
 
 /**
  * Automation operation action to generate a new operation contribution.

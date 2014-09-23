@@ -2,10 +2,8 @@
  * (C) Copyright 2014 Nuxeo SA (http://nuxeo.com/) and contributors.
  *
  *       All rights reserved. This program and the accompanying materials
- *       are made available under the terms of the GNU Lesser General Public
- *       License
- *       (LGPL) version 2.1 which accompanies this distribution,
- *       and is available at
+ *       are made available under the terms of the GNU Lesser General Public License
+ *       (LGPL) version 2.1 which accompanies this distribution, and is available at
  *       http://www.gnu.org/licenses/lgpl-2.1.html
  *
  *       This library is distributed in the hope that it will be useful,
@@ -16,7 +14,7 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy;
+package org.nuxeo.codenvy.client;
 
 import com.codenvy.ide.api.action.ActionManager;
 import com.codenvy.ide.api.action.DefaultActionGroup;
@@ -34,9 +32,10 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
-import org.nuxeo.codenvy.action.AutomationOperationAction;
-import org.nuxeo.codenvy.action.BundleAction;
-import org.nuxeo.codenvy.wizard.NuxeoBundlePresenter;
+import org.nuxeo.codenvy.client.action.AutomationOperationAction;
+import org.nuxeo.codenvy.client.action.BundleAction;
+import org.nuxeo.codenvy.client.wizard.NuxeoBundlePresenter;
+import org.nuxeo.codenvy.shared.ProjectAttributes;
 
 /**
  * Nuxeo Extension:
@@ -47,7 +46,7 @@ import org.nuxeo.codenvy.wizard.NuxeoBundlePresenter;
 public class NuxeoExtension {
 
 
-    public static final String NUXEO = "Nuxeo";
+    public static final String NUXEO = "Nuxeo Actions";
 
     public static final String NUXEO_GROUP_ACTION = "nuxeoGroup";
 
@@ -55,7 +54,7 @@ public class NuxeoExtension {
 
 
     public interface ParserResource extends ClientBundle {
-        @Source("org/nuxeo/codenvy/nx.gif")
+        @Source("org/nuxeo/codenvy/client/nx.gif")
         ImageResource nuxeoCategoryIcon();
     }
 
@@ -95,9 +94,9 @@ public class NuxeoExtension {
         wizard.addPage(bundlePresenterProvider);
         wizard.addPage(runnerPagePresenter);
 
-        projectTypeWizardRegistry.addWizard("Nuxeo", wizard);
+        projectTypeWizardRegistry.addWizard(ProjectAttributes.NUXEO_ID, wizard);
 
-        iconRegistry.registerIcon(new Icon("nuxeo",
+        iconRegistry.registerIcon(new Icon(ProjectAttributes.NUXEO_ID,
                 parserResource.nuxeoCategoryIcon()));
 
         Log.info(NuxeoExtension.class, "Registration Terminated.");

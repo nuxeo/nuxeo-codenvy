@@ -14,23 +14,24 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy.wizard;
+package org.nuxeo.codenvy.server.project.generator;
 
-import com.codenvy.ide.api.mvp.View;
-import com.google.inject.ImplementedBy;
+import com.codenvy.api.core.ConflictException;
+import com.codenvy.api.core.ForbiddenException;
+import com.codenvy.api.core.ServerException;
+import com.codenvy.api.project.server.FolderEntry;
+import com.google.inject.Singleton;
 
-/**
- *
- */
-@ImplementedBy(BundlePageView.class)
-public interface PageView extends View<PageView.ActionDelegate> {
-    /**
-     * Required for delegating functions in view.
-     */
-    public interface ActionDelegate {
-        void isValidated();
+@Singleton
+public class DefaultTemplateGenerator {
+
+    private static final String CONTENT = "Nuxeo";
+
+    public static void generateTemplate(FolderEntry baseFolder) throws
+            ConflictException, ServerException, ForbiddenException {
+        baseFolder.createFile("main.java", CONTENT.getBytes(), "text/java");
     }
 
-    boolean isValidated();
-
+    private DefaultTemplateGenerator() {
+    }
 }
