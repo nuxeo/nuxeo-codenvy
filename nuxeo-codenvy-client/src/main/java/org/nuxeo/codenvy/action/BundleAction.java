@@ -23,21 +23,21 @@ import com.codenvy.ide.api.action.ActionEvent;
 import com.google.gwt.user.client.Window;
 
 /**
- * Automation operation action to generate a new operation contribution.
+ * Nuxeo server bundle action to create new project.
  */
-public class AutomationOperationAction extends Action {
+public class BundleAction extends Action {
 
-    public static final String TITLE = "Nuxeo Automation Operation";
+    public static final String TITLE = "Nuxeo Server Bundle";
 
-    public static final String DESCRIPTION = "Create a new Nuxeo Automation " +
-            "operation.";
+    public static final String DESCRIPTION = "Create a new Nuxeo Server " +
+            "Bundle";
 
-    public AutomationOperationAction() {
+    public BundleAction() {
         // TODO ENVY-6: SET ICON
         super(TITLE, DESCRIPTION);
     }
 
     public void actionPerformed(ActionEvent event) {
-        Window.prompt("Create a new operation with name:", "");
+        Window.prompt("Create a new Nuxeo bundle:", "");
     }
 }
