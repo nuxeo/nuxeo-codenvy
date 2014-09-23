@@ -20,9 +20,11 @@ import com.codenvy.ide.api.extension.ExtensionGinModule;
 import com.codenvy.ide.api.wizard.DefaultWizard;
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Singleton;
+import org.nuxeo.codenvy.wizard.BundlePageView;
+import org.nuxeo.codenvy.wizard.PageView;
 
 /**
- *
+ * Nuxeo Module.
  */
 @ExtensionGinModule
 public class NuxeoModule extends AbstractGinModule {

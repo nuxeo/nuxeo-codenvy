@@ -29,7 +29,7 @@ public class BundlePresenter extends AbstractWizardPage implements PageView
 
     @Inject
     public BundlePresenter(PageView view) {
-        super("Page 1", null);
+        super("Server Bundle", null);
         this.view = view;
         this.view.setDelegate(this);
     }
