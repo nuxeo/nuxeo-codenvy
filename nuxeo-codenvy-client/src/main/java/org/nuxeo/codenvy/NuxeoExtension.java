@@ -2,8 +2,10 @@
  * (C) Copyright 2014 Nuxeo SA (http://nuxeo.com/) and contributors.
  *
  *       All rights reserved. This program and the accompanying materials
- *       are made available under the terms of the GNU Lesser General Public License
- *       (LGPL) version 2.1 which accompanies this distribution, and is available at
+ *       are made available under the terms of the GNU Lesser General Public
+ *       License
+ *       (LGPL) version 2.1 which accompanies this distribution,
+ *       and is available at
  *       http://www.gnu.org/licenses/lgpl-2.1.html
  *
  *       This library is distributed in the hope that it will be useful,
@@ -34,7 +36,7 @@ import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import org.nuxeo.codenvy.action.AutomationOperationAction;
 import org.nuxeo.codenvy.action.BundleAction;
-import org.nuxeo.codenvy.wizard.BundlePresenter;
+import org.nuxeo.codenvy.wizard.NuxeoBundlePresenter;
 
 /**
  * Nuxeo Extension:
@@ -62,10 +64,10 @@ public class NuxeoExtension {
             ActionManager actionManager,
             AutomationOperationAction automationOperationAction,
             BundleAction bundleAction, ProjectTypeWizardRegistry
-            projectTypeWizardRegistry, Provider<BundlePresenter>
+            projectTypeWizardRegistry, Provider<NuxeoBundlePresenter>
             bundlePresenterProvider, ParserResource parserResource,
             Provider<SelectRunnerPagePresenter>
-            runnerPagePresenter, IconRegistry iconRegistry,
+                    runnerPagePresenter, IconRegistry iconRegistry,
             NotificationManager notificationManager) {
 
         Log.info(NuxeoExtension.class, "Registration Started.");
