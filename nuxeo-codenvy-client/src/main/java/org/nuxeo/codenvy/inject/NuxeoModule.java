@@ -2,8 +2,10 @@
  * (C) Copyright 2014 Nuxeo SA (http://nuxeo.com/) and contributors.
  *
  *       All rights reserved. This program and the accompanying materials
- *       are made available under the terms of the GNU Lesser General Public License
- *       (LGPL) version 2.1 which accompanies this distribution, and is available at
+ *       are made available under the terms of the GNU Lesser General Public
+ *       License
+ *       (LGPL) version 2.1 which accompanies this distribution,
+ *       and is available at
  *       http://www.gnu.org/licenses/lgpl-2.1.html
  *
  *       This library is distributed in the hope that it will be useful,
@@ -14,15 +16,22 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy;
+package org.nuxeo.codenvy.inject;
 
 import com.codenvy.ide.api.extension.ExtensionGinModule;
+import com.codenvy.ide.api.wizard.DefaultWizard;
 import com.google.gwt.inject.client.AbstractGinModule;
+import com.google.inject.Singleton;
 
+/**
+ *
+ */
 @ExtensionGinModule
 public class NuxeoModule extends AbstractGinModule {
 
     @Override
     protected void configure() {
+        bind(DefaultWizard.class).annotatedWith(NuxeoWizard.class).toProvider
+                (BundleWizardProvider.class).in(Singleton.class);
     }
 }

@@ -20,24 +20,39 @@ package org.nuxeo.codenvy.action;
 
 import com.codenvy.ide.api.action.Action;
 import com.codenvy.ide.api.action.ActionEvent;
-import com.google.gwt.user.client.Window;
+import com.codenvy.ide.api.wizard.DefaultWizard;
+import com.codenvy.ide.api.wizard.WizardDialog;
+import com.codenvy.ide.api.wizard.WizardDialogFactory;
+import com.google.inject.Inject;
+import org.nuxeo.codenvy.inject.NuxeoWizard;
 
 /**
  * Nuxeo server bundle action to create new project.
  */
 public class BundleAction extends Action {
 
+    private WizardDialogFactory factory;
+
+    private DefaultWizard wizard;
+
     public static final String TITLE = "Nuxeo Server Bundle";
 
     public static final String DESCRIPTION = "Create a new Nuxeo Server " +
             "Bundle";
 
-    public BundleAction() {
+    @Inject
+    public BundleAction(WizardDialogFactory factory,
+            @NuxeoWizard DefaultWizard wizard) {
         // TODO ENVY-6: SET ICON
         super(TITLE, DESCRIPTION);
+        this.factory = factory;
+        this.wizard = wizard;
+
     }
 
+    @Override
     public void actionPerformed(ActionEvent event) {
-        Window.prompt("Create a new Nuxeo bundle:", "");
+        WizardDialog dialog = factory.create(wizard);
+        dialog.show();
     }
 }
