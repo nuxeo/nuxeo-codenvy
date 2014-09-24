@@ -96,7 +96,7 @@ public class NuxeoExtension {
 
         projectTypeWizardRegistry.addWizard(ProjectAttributes.NUXEO_ID, wizard);
 
-        iconRegistry.registerIcon(new Icon(ProjectAttributes.NUXEO_ID,
+        iconRegistry.registerIcon(new Icon("nuxeo.samples.category.icon",
                 parserResource.nuxeoCategoryIcon()));
 
         Log.info(NuxeoExtension.class, "Registration Terminated.");
