@@ -88,7 +88,7 @@ public class NuxeoProjectTypeExtension implements ProjectTypeExtension {
                 "git",
                 "Nuxeo",
                 "Project using Nuxeo.",
-                "https://github.com/vpasquier/nuxeo-codenvy-template",
+                "https://github.com/nuxeo/nuxeo-codenvy-template",
                 params,
                 null,
                 null,
