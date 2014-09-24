@@ -25,38 +25,48 @@ import com.codenvy.ide.Constants;
 import com.codenvy.ide.server.ProjectTemplateDescriptionLoader;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
 import org.nuxeo.codenvy.shared.ProjectAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Singleton
 public class NuxeoProjectTypeExtension implements ProjectTypeExtension {
-    private static final Logger LOG = LoggerFactory.getLogger(NuxeoProjectTypeExtension.class);
-    private final ProjectType                      projectType;
-    private final ProjectTemplateDescriptionLoader projectTemplateDescriptionLoader;
+    private static final Logger LOG = LoggerFactory.getLogger
+            (NuxeoProjectTypeExtension.class);
+
+    private final ProjectType projectType;
+
+    private final ProjectTemplateDescriptionLoader
+            projectTemplateDescriptionLoader;
 
     @Inject
     public NuxeoProjectTypeExtension(ProjectTypeDescriptionRegistry registry,
             ProjectTemplateDescriptionLoader projectTemplateDescriptionLoader) {
-        this.projectTemplateDescriptionLoader = projectTemplateDescriptionLoader;
-        this.projectType = new ProjectType(ProjectAttributes.NUXEO_ID, ProjectAttributes.NUXEO_NAME, ProjectAttributes.NUXEO_CATEGORY, null,
-                                           ProjectAttributes.NUXEO_DEFAULT_RUNNER);
+        this.projectTemplateDescriptionLoader =
+                projectTemplateDescriptionLoader;
+        this.projectType = new ProjectType(ProjectAttributes.NUXEO_ID,
+                ProjectAttributes.NUXEO_NAME,
+                ProjectAttributes.NUXEO_CATEGORY, null,
+                ProjectAttributes.NUXEO_DEFAULT_RUNNER);
         registry.registerProjectType(this);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ProjectType getProjectType() {
         return projectType;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Attribute> getPredefinedAttributes() {
         final List<Attribute> list = new ArrayList<>(1);
@@ -64,19 +74,34 @@ public class NuxeoProjectTypeExtension implements ProjectTypeExtension {
         return list;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<ProjectTemplateDescription> getTemplates() {
-        final List<ProjectTemplateDescription> list = new ArrayList<>();
-        try {
-            projectTemplateDescriptionLoader.load(getProjectType().getId(), list);
-        } catch (IOException e) {
-            LOG.error("Unable to load external templates for project type: {}", getProjectType().getId());
-        }
+        Map<String, String> params = new HashMap<>(2);
+        params.put("branch", "master");
+        params.put("cleanVcs", "true");
+        final List<ProjectTemplateDescription> list = new ArrayList<>(1);
+
+        list.add(new ProjectTemplateDescription("Nuxeo Server Bundle Sample",
+                "git",
+                "Nuxeo",
+                "Project using Nuxeo.",
+                "https://github.com/vpasquier/nuxeo-codenvy-template",
+                params,
+                null,
+                null,
+                "nuxeo-server",
+                null,
+                null));
+
         return list;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Map<String, String> getIconRegistry() {
         return null;
