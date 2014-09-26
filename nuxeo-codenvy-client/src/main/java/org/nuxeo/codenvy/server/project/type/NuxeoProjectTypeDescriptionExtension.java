@@ -23,7 +23,7 @@ import com.codenvy.api.project.shared.ProjectType;
 import com.codenvy.ide.Constants;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import org.nuxeo.codenvy.shared.ProjectAttributes;
+import org.nuxeo.codenvy.shared.NuxeoAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,10 +44,10 @@ public class NuxeoProjectTypeDescriptionExtension implements
     @Override
     public List<ProjectType> getProjectTypes() {
         final List<ProjectType> list = new ArrayList<>(1);
-        list.add(new ProjectType(ProjectAttributes.NUXEO_ID,
-                ProjectAttributes.NUXEO_NAME,
-                ProjectAttributes.NUXEO_CATEGORY, null,
-                ProjectAttributes.NUXEO_DEFAULT_RUNNER));
+        list.add(new ProjectType(NuxeoAttributes.NUXEO_ID,
+                NuxeoAttributes.WIZARD_TITLE,
+                NuxeoAttributes.NUXEO_CATEGORY, null,
+                NuxeoAttributes.NUXEO_DEFAULT_RUNNER));
         return list;
     }
 
@@ -60,7 +60,7 @@ public class NuxeoProjectTypeDescriptionExtension implements
         list.add(new AttributeDescription(Constants.LANGUAGE));
         list.add(new AttributeDescription(Constants.RUNNER_NAME));
         list.add(new AttributeDescription(Constants.RUNNER_ENV_ID));
-        list.add(new AttributeDescription(ProjectAttributes
+        list.add(new AttributeDescription(NuxeoAttributes
                 .NUXEO_PROJECT_TEMPLATE));
         return list;
     }

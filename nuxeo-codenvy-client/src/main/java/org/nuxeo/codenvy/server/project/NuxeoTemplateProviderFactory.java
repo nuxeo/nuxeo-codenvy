@@ -16,17 +16,13 @@
  *******************************************************************************/
 package org.nuxeo.codenvy.server.project;
 
-import com.codenvy.api.core.ConflictException;
-import com.codenvy.api.core.ForbiddenException;
-import com.codenvy.api.core.ServerException;
 import com.codenvy.api.project.server.Project;
 import com.codenvy.api.project.server.ValueProviderFactory;
 import com.codenvy.api.project.shared.InvalidValueException;
 import com.codenvy.api.project.shared.ValueProvider;
 import com.codenvy.api.project.shared.ValueStorageException;
 import com.google.inject.Singleton;
-import org.nuxeo.codenvy.server.project.generator.DefaultTemplateGenerator;
-import org.nuxeo.codenvy.shared.ProjectAttributes;
+import org.nuxeo.codenvy.shared.NuxeoAttributes;
 
 import java.util.Collections;
 import java.util.List;
@@ -34,13 +30,17 @@ import java.util.List;
 @Singleton
 public class NuxeoTemplateProviderFactory implements ValueProviderFactory {
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getName() {
-        return ProjectAttributes.NUXEO_PROJECT_TEMPLATE;
+        return NuxeoAttributes.NUXEO_PROJECT_TEMPLATE;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ValueProvider newInstance(final Project project) {
         return new ValueProvider() {
@@ -50,15 +50,8 @@ public class NuxeoTemplateProviderFactory implements ValueProviderFactory {
             }
 
             @Override
-            public void setValues(List<String> value) throws ValueStorageException, InvalidValueException {
-                if (!value.isEmpty() && ProjectAttributes.NUXEO_DEFAULT_TEMPLATE.equals(value.get(0))) {
-                    try {
-                        DefaultTemplateGenerator.generateTemplate(project
-                                .getBaseFolder());
-                    } catch (ConflictException | ServerException | ForbiddenException e) {
-                        throw new IllegalStateException(e);
-                    }
-                }
+            public void setValues(List<String> value) throws
+                    ValueStorageException, InvalidValueException {
             }
         };
     }

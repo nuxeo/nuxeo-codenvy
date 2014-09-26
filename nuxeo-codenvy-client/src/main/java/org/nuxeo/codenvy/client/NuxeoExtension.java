@@ -35,7 +35,7 @@ import com.google.inject.Singleton;
 import org.nuxeo.codenvy.client.action.AutomationOperationAction;
 import org.nuxeo.codenvy.client.action.BundleAction;
 import org.nuxeo.codenvy.client.wizard.NuxeoBundlePresenter;
-import org.nuxeo.codenvy.shared.ProjectAttributes;
+import org.nuxeo.codenvy.shared.NuxeoAttributes;
 
 /**
  * Nuxeo Extension:
@@ -49,9 +49,6 @@ public class NuxeoExtension {
     public static final String NUXEO = "Nuxeo Actions";
 
     public static final String NUXEO_GROUP_ACTION = "nuxeoGroup";
-
-    //@NuxeoWizard DefaultWizard nuxeoWizard to add into the constructor
-
 
     public interface ParserResource extends ClientBundle {
         @Source("org/nuxeo/codenvy/client/nx.gif")
@@ -90,13 +87,13 @@ public class NuxeoExtension {
 
         // Handle wizard
 
-        ProjectWizard wizard = new ProjectWizard(notificationManager);
-        wizard.addPage(bundlePresenterProvider);
-        wizard.addPage(runnerPagePresenter);
+//        ProjectWizard wizard = new ProjectWizard(notificationManager);
+//        wizard.addPage(bundlePresenterProvider);
+//        wizard.addPage(runnerPagePresenter);
+//
+//        projectTypeWizardRegistry.addWizard(NuxeoAttributes.NUXEO_ID, wizard);
 
-        projectTypeWizardRegistry.addWizard(ProjectAttributes.NUXEO_ID, wizard);
-
-        iconRegistry.registerIcon(new Icon("nuxeo.samples.category.icon",
+        iconRegistry.registerIcon(new Icon(NuxeoAttributes.NUXEO_ICON,
                 parserResource.nuxeoCategoryIcon()));
 
         Log.info(NuxeoExtension.class, "Registration Terminated.");

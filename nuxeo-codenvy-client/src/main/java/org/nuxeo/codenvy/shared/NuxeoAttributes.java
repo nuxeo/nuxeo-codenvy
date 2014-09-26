@@ -14,24 +14,23 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy.server.project.generator;
+package org.nuxeo.codenvy.shared;
 
-import com.codenvy.api.core.ConflictException;
-import com.codenvy.api.core.ForbiddenException;
-import com.codenvy.api.core.ServerException;
-import com.codenvy.api.project.server.FolderEntry;
-import com.google.inject.Singleton;
+public interface NuxeoAttributes {
+    String NUXEO_ID = "nuxeo";
 
-@Singleton
-public class DefaultTemplateGenerator {
+    String NUXEO_CATEGORY = "Nuxeo";
 
-    private static final String CONTENT = "Nuxeo";
+    String NUXEO_DEFAULT_RUNNER = "nuxeo-server";
 
-    public static void generateTemplate(FolderEntry baseFolder) throws
-            ConflictException, ServerException, ForbiddenException {
-        baseFolder.createFile("main.java", CONTENT.getBytes(), "text/java");
-    }
+    String WIZARD_TITLE = "Nuxeo Project";
 
-    private DefaultTemplateGenerator() {
-    }
+    String WIZARD_DESC = "Project using Nuxeo.";
+
+    String NUXEO_PROJECT_TEMPLATE = "nuxeo.project.template";
+
+    String NUXEO_ICON = "nuxeo.samples.category.icon";
+
+    String TEMPLATE_URL = "https://github.com/nuxeo/nuxeo-codenvy-template";
+
 }
