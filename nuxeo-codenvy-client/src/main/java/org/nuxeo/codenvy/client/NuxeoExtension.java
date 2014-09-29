@@ -22,19 +22,15 @@ import com.codenvy.ide.api.action.IdeActions;
 import com.codenvy.ide.api.extension.Extension;
 import com.codenvy.ide.api.icon.Icon;
 import com.codenvy.ide.api.icon.IconRegistry;
-import com.codenvy.ide.api.notification.NotificationManager;
-import com.codenvy.ide.api.projecttype.wizard.ProjectTypeWizardRegistry;
-import com.codenvy.ide.api.projecttype.wizard.ProjectWizard;
-import com.codenvy.ide.extension.runner.client.wizard.SelectRunnerPagePresenter;
+import com.codenvy.ide.api.projecttree.TreeStructureProviderRegistry;
 import com.codenvy.ide.util.loging.Log;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import org.nuxeo.codenvy.client.action.AutomationOperationAction;
 import org.nuxeo.codenvy.client.action.BundleAction;
-import org.nuxeo.codenvy.client.wizard.NuxeoBundlePresenter;
+import org.nuxeo.codenvy.client.projecttree.MavenProjectTreeStructureProvider;
 import org.nuxeo.codenvy.shared.NuxeoAttributes;
 
 /**
@@ -59,16 +55,10 @@ public class NuxeoExtension {
     public NuxeoExtension(
             ActionManager actionManager,
             AutomationOperationAction automationOperationAction,
-            BundleAction bundleAction, ProjectTypeWizardRegistry
-            projectTypeWizardRegistry, Provider<NuxeoBundlePresenter>
-            bundlePresenterProvider, ParserResource parserResource,
-            Provider<SelectRunnerPagePresenter>
-                    runnerPagePresenter, IconRegistry iconRegistry,
-            NotificationManager notificationManager) {
-
-        Log.info(NuxeoExtension.class, "Registration Started.");
-
-        Log.info(NuxeoExtension.class, "Registering Nuxeo Actions...");
+            BundleAction bundleAction, ParserResource parserResource,
+            IconRegistry iconRegistry, MavenProjectTreeStructureProvider
+            mavenProjectTreeStructureProvider, TreeStructureProviderRegistry
+            treeStructureProviderRegistry) {
 
         // Handle actions
         DefaultActionGroup nuxeoGroup = new DefaultActionGroup(NUXEO, true,
@@ -83,19 +73,14 @@ public class NuxeoExtension {
         nuxeoGroup.add(automationOperationAction);
         nuxeoGroup.add(bundleAction);
 
-        Log.info(NuxeoExtension.class, "Registering Nuxeo Wizard...");
-
-        // Handle wizard
-
-//        ProjectWizard wizard = new ProjectWizard(notificationManager);
-//        wizard.addPage(bundlePresenterProvider);
-//        wizard.addPage(runnerPagePresenter);
-//
-//        projectTypeWizardRegistry.addWizard(NuxeoAttributes.NUXEO_ID, wizard);
-
+        // Handle Nuxeo icon
         iconRegistry.registerIcon(new Icon(NuxeoAttributes.NUXEO_ICON,
                 parserResource.nuxeoCategoryIcon()));
 
-        Log.info(NuxeoExtension.class, "Registration Terminated.");
+        // Handle tree structure
+        treeStructureProviderRegistry.registerProvider("nuxeo",
+                mavenProjectTreeStructureProvider);
+
+        Log.info(NuxeoExtension.class, "Nuxeo Plugin registration terminated.");
     }
 }

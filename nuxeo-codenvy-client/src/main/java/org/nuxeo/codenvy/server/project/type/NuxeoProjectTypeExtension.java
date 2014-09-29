@@ -26,18 +26,24 @@ import com.codenvy.ide.server.ProjectTemplateDescriptionLoader;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import org.nuxeo.codenvy.shared.NuxeoAttributes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Singleton
 public class NuxeoProjectTypeExtension implements ProjectTypeExtension {
 
+    private static final Logger LOG = LoggerFactory.getLogger
+            (NuxeoProjectTypeExtension.class);
+
     private final ProjectType projectType;
 
-    private final ProjectTemplateDescriptionLoader projectTemplateDescriptionLoader;
+    private final ProjectTemplateDescriptionLoader
+            projectTemplateDescriptionLoader;
 
     @Inject
     public NuxeoProjectTypeExtension(ProjectTypeDescriptionRegistry registry,
@@ -65,29 +71,16 @@ public class NuxeoProjectTypeExtension implements ProjectTypeExtension {
 
     @Override
     public List<ProjectTemplateDescription> getTemplates() {
-        Map<String, String> params = new HashMap<>(2);
-        params.put("branch", "master");
-        params.put("cleanVcs", "true");
-        final List<ProjectTemplateDescription> list = new ArrayList<>(1);
-
-        list.add(new ProjectTemplateDescription(NuxeoAttributes.NUXEO_CATEGORY,
-                "git",
-                NuxeoAttributes.WIZARD_TITLE,
-                NuxeoAttributes.WIZARD_DESC,
-                NuxeoAttributes.TEMPLATE_URL,
-                params,
-                null,
-                null,
-                NuxeoAttributes.NUXEO_DEFAULT_RUNNER,
-                null,
-                null));
-
+        final List<ProjectTemplateDescription> list = new ArrayList<>();
+        try {
+            projectTemplateDescriptionLoader.load(getProjectType().getId(),
+                    list);
+        } catch (IOException e) {
+            LOG.error("Unable to load Nuxeo templates");
+        }
         return list;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public Map<String, String> getIconRegistry() {
         return null;

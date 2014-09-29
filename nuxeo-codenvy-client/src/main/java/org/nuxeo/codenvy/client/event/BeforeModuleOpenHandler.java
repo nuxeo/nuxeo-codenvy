@@ -14,18 +14,10 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy.client.inject;
+package org.nuxeo.codenvy.client.event;
 
-import com.codenvy.ide.api.extension.ExtensionGinModule;
-import com.google.gwt.inject.client.AbstractGinModule;
+import com.google.gwt.event.shared.EventHandler;
 
-/**
- * Nuxeo Module.
- */
-@ExtensionGinModule
-public class NuxeoGinModule extends AbstractGinModule {
-
-    @Override
-    protected void configure() {
-    }
+public interface BeforeModuleOpenHandler extends EventHandler {
+    void onBeforeModuleOpen(BeforeModuleOpenEvent event);
 }

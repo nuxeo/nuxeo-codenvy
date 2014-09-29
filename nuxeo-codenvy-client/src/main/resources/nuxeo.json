@@ -1,22 +1,24 @@
 [
-    {
-        "displayName": "NUXEO",
-        "category": "Nuxeo",
-        "description": "A simple Nuxeo server bundle.",
-        "source": {
-            "type": "git",
-            "location": "https://github.com/nuxeo/nuxeo-codenvy-template.git",
-            "parameters": {
-                "branch": "master",
-                "cleanVcs": "true"
-            }
-        },
-        "defaultRunnerEnvironment": "nuxeo",
-        "runnerEnvironmentConfigurations": {
-            "default": {
-                "recommendedMemorySize": 512
-            }
-        },
-        "runnerName": "nuxeo-runner"
-    }
+  {
+    "displayName": "Nuxeo Project",
+    "category": "Nuxeo",
+    "description": "Nuxeo bundle.",
+    "source": {
+      "type": "git",
+      "location": "https://github.com/nuxeo/nuxeo-codenvy-template.git",
+      "parameters": {
+        "branch": "master",
+        "cleanVcs": "true"
+      }
+    },
+    "defaultRunnerEnvironment": "default",
+    "runnerEnvironmentConfigurations": {
+      "default": {
+        "recommendedMemorySize": 256
+      }
+    },
+    "defaultBuilderEnvironment": "default",
+    "runnerName": "docker",
+    "builderName": "maven"
+  }
 ]

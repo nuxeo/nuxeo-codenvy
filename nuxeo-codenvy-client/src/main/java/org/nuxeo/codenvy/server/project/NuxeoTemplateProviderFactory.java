@@ -18,7 +18,6 @@ package org.nuxeo.codenvy.server.project;
 
 import com.codenvy.api.project.server.Project;
 import com.codenvy.api.project.server.ValueProviderFactory;
-import com.codenvy.api.project.shared.InvalidValueException;
 import com.codenvy.api.project.shared.ValueProvider;
 import com.codenvy.api.project.shared.ValueStorageException;
 import com.google.inject.Singleton;
@@ -50,8 +49,7 @@ public class NuxeoTemplateProviderFactory implements ValueProviderFactory {
             }
 
             @Override
-            public void setValues(List<String> value) throws
-                    ValueStorageException, InvalidValueException {
+            public void setValues(List<String> value) {
             }
         };
     }

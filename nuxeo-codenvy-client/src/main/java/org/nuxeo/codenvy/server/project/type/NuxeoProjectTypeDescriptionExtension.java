@@ -38,22 +38,16 @@ public class NuxeoProjectTypeDescriptionExtension implements
         registry.registerDescription(this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public List<ProjectType> getProjectTypes() {
         final List<ProjectType> list = new ArrayList<>(1);
         list.add(new ProjectType(NuxeoAttributes.NUXEO_ID,
                 NuxeoAttributes.WIZARD_TITLE,
-                NuxeoAttributes.NUXEO_CATEGORY, null,
+                NuxeoAttributes.NUXEO_CATEGORY, "maven",
                 NuxeoAttributes.NUXEO_DEFAULT_RUNNER));
         return list;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public List<AttributeDescription> getAttributeDescriptions() {
         final List<AttributeDescription> list = new ArrayList<>(4);

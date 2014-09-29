@@ -49,6 +49,7 @@
     <dto-generator-out-directory>
       ${project.build.directory}/generated-sources/dto/
     </dto-generator-out-directory>
+    <java.plugin.version>1.1.0-SNAPSHOT</java.plugin.version>
     <nuxeo.plugin.version>1.0.0-SNAPSHOT</nuxeo.plugin.version>
   </properties>
 
@@ -58,6 +59,11 @@
         <groupId>com.codenvy.ide</groupId>
         <artifactId>codenvy-ide-api</artifactId>
         <version>${codenvy.ide.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.codenvy.plugin-java</groupId>
+        <artifactId>codenvy-ext-java</artifactId>
+        <version>${java.plugin.version}</version>
       </dependency>
       <dependency>
         <groupId>com.google.gwt</groupId>
@@ -83,12 +89,6 @@
         <groupId>org.nuxeo.codenvy</groupId>
         <artifactId>nuxeo-codenvy-server</artifactId>
         <version>${nuxeo.plugin.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.codenvy.ide</groupId>
-        <artifactId>codenvy-ext-runner</artifactId>
-        <version>${codenvy.ide.version}</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>junit</groupId>

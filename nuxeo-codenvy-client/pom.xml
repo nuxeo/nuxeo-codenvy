@@ -17,8 +17,10 @@
           vpasquier <vpasquier@nuxeo.com>
 
 -->
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>nuxeo-codenvy-parent</artifactId>
@@ -32,11 +34,11 @@
   <dependencies>
     <dependency>
       <groupId>com.codenvy.ide</groupId>
-      <artifactId>codenvy-ext-runner</artifactId>
+      <artifactId>codenvy-ide-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.codenvy.ide</groupId>
-      <artifactId>codenvy-ide-api</artifactId>
+      <groupId>com.codenvy.plugin-java</groupId>
+      <artifactId>codenvy-ext-java</artifactId>
     </dependency>
   </dependencies>
   <build>

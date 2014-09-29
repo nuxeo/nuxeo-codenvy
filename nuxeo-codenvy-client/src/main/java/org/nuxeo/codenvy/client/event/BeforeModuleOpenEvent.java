@@ -14,18 +14,30 @@
  *       Contributors:
  *       vpasquier <vpasquier@nuxeo.com>
  *******************************************************************************/
-package org.nuxeo.codenvy.client.inject;
+package org.nuxeo.codenvy.client.event;
 
-import com.codenvy.ide.api.extension.ExtensionGinModule;
-import com.google.gwt.inject.client.AbstractGinModule;
+import com.google.gwt.event.shared.GwtEvent;
+import org.nuxeo.codenvy.client.projecttree.ModuleNode;
 
-/**
- * Nuxeo Module.
- */
-@ExtensionGinModule
-public class NuxeoGinModule extends AbstractGinModule {
+public class BeforeModuleOpenEvent extends GwtEvent<BeforeModuleOpenHandler> {
+    public static Type<BeforeModuleOpenHandler> TYPE = new
+            Type<BeforeModuleOpenHandler>();
 
-    @Override
-    protected void configure() {
+    private ModuleNode module;
+
+    public BeforeModuleOpenEvent(ModuleNode module) {
+        this.module = module;
+    }
+
+    public ModuleNode getModule() {
+        return module;
+    }
+
+    public Type<BeforeModuleOpenHandler> getAssociatedType() {
+        return TYPE;
+    }
+
+    protected void dispatch(BeforeModuleOpenHandler handler) {
+        handler.onBeforeModuleOpen(this);
     }
 }
