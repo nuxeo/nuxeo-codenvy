@@ -1,7 +1,3 @@
-Work in Progress
-====================================
-
-
 Nuxeo Plugin for Codenvy IDE 3
 ====================================
 
@@ -30,16 +26,45 @@ What it can do
 
 With this plugin, you can :
 
-- create a Nuxeo server-side bundle to add features such as [Automation Operations](http://doc.nuxeo.com/x/mQAz).
-- create a Nuxeo AngularJS client application to access to Nuxeo platform through REST API.
-- push your projects into Nuxeo IO instance or directly into Codenvy Nuxeo Runner.
+- Create a Nuxeo server-side bundle to add features such as [Automation Operations](http://doc.nuxeo.com/x/mQAz).
+- The project generation adds AngularJS client application sample to browse Nuxeo repository.
+- To deploy bundle into Nuxeo Docker Runner (Connect Authentication provided).
 
-Dev
+Code & Deployment
 ------------
 
-mvn clean install license:format -Dlicense.header=header.txt to add licence headers for mvn headers check in case.
-Pay attention to the sort of group maven artifact (artifactId should be placed before groupId) -> maven sort check.
+- All code remains into nuxeo-codenvy-client.
+- mvn clean install in root to build Nuxeo plugin.
+- Add into assembly-ide/pom.xml (gwt deployment):
 
-Documentation
+	    <dependency>
+	      <groupId>org.nuxeo.codenvy</groupId>
+	      <artifactId>nuxeo-codenvy-client</artifactId>
+	      <version>1.0.0-SNAPSHOT<</version>
+	    </dependency>
+
+- Add into assembly-ide/src/main/resources/com/codenvy/ide/IDE.gwt.xml (gwt deployment):
+
+		<inherits name="org.nuxeo.codenvy.Nuxeo"/>
+
+- Add into assembly-platform-api/pom.xml (server deployment)
+
+	    <dependency>
+	      <groupId>org.nuxeo.codenvy</groupId>
+	      <artifactId>nuxeo-codenvy-client</artifactId>
+	      <version>1.0.0-SNAPSHOT<</version>
+	    </dependency>
+
+User Documentation (in progress)
 -------------
+
+- Create a Nuxeo project:
+
+- Create an Automation operation:
+
+- Authentication through Nuxeo Connect:
+
+- Deploy project into Nuxeo Docker Runner:
+
+
 
