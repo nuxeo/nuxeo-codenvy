@@ -1,0 +1,46 @@
+{"v": "2.0",
+  "project": {
+    "attributes": {
+      "language": [
+        "java"
+      ]
+    },
+    "builders": {
+      "default": "maven"
+    },
+    "description": "A Nuxeo bundle.",
+    "name": "javaconsole",
+    "runners": {
+      "configs":{
+        "system:/java/web/tomcat7":{
+          "ram": 2048,
+          "variables":{
+
+          },
+          "options":{
+
+          }
+        }
+      },
+      "default": "project:/docker/nuxeo"
+    },
+    "type": "maven"
+  },
+  "source": {
+    "project": {
+      "location": "https://github.com/nuxeo/nuxeo-codenvy-template",
+      "parameters": {},
+      "type": "git"
+    },
+    "runners": {
+      "/docker/nuxeo": {
+        "location": "https://raw.githubusercontent.com/nuxeo/nuxeo-codenvy-template/master/run.dc5y"
+      }
+    }
+  },
+  "creator" : {
+    "name" : "nuxeo",
+    "email" : "vpasquier@nuxeo.com",
+    "accountId" : "accountpmr21h5j6dbkrahe"
+  }
+}
