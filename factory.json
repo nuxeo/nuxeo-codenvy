@@ -42,5 +42,8 @@
     "name" : "nuxeo",
     "email" : "vpasquier@nuxeo.com",
     "accountId" : "accountpmr21h5j6dbkrahe"
+  },
+  "actions":{
+    "openFile" : "/src/main/java/org/nuxeo/sample/SampleOperation.java"
   }
 }
