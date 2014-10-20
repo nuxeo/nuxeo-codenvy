@@ -9,7 +9,7 @@
       "default": "maven"
     },
     "description": "A Nuxeo bundle.",
-    "name": "javaconsole",
+    "name": "nuxeo-project",
     "runners": {
       "configs":{
         "system:/java/web/tomcat7":{
