@@ -12,7 +12,7 @@
     "name": "nuxeo-project",
     "runners": {
       "configs":{
-        "system:/java/web/tomcat7":{
+        "project:/docker/nuxeo":{
           "ram": 2048,
           "variables":{
 
