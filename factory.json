@@ -1,47 +1,39 @@
 {"v": "2.0",
   "project": {
+    "name": "nuxeo-project",
+    "visibility": "public",
+    "builders": {
+      "default": "maven"
+    },
     "attributes": {
       "language": [
         "java"
       ]
     },
-    "builders": {
-      "default": "maven"
-    },
-    "description": "A Nuxeo bundle.",
-    "name": "nuxeo-project",
+    "description": "Nuxeo Project",
     "runners": {
       "configs":{
-        "project:/docker/nuxeo":{
-          "ram": 2048,
-          "variables":{
-
-          },
-          "options":{
-
-          }
+        "project://nuxeo":{
+          "ram": 2048
         }
       },
-      "default": "project:/docker/nuxeo"
+      "default": "project://nuxeo"
     },
     "type": "maven"
   },
   "source": {
     "project": {
       "location": "https://github.com/nuxeo/nuxeo-codenvy-template",
-      "parameters": {},
+      "parameters": {
+        "branch": "master"
+      },
       "type": "git"
-    },
-    "runners": {
-      "/docker/nuxeo": {
-        "location": "https://raw.githubusercontent.com/nuxeo/nuxeo-codenvy-template/master/run.dc5y"
-      }
     }
   },
   "creator" : {
-    "name" : "nuxeo",
+    "name" : "Nuxeo",
     "email" : "vpasquier@nuxeo.com",
-    "accountId" : "accountpmr21h5j6dbkrahe"
+    "accountId" : "accountmiwribbeloxydff4"
   },
   "actions":{
     "openFile" : "/src/main/java/org/nuxeo/sample/SampleOperation.java"
