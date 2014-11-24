@@ -1,7 +1,7 @@
 {"v": "2.0",
   "project": {
     "name": "nuxeo-project",
-    "visibility": "public",
+    "visibility": "private",
     "builders": {
       "default": "maven"
     },
@@ -46,6 +46,19 @@
         "title": "Welcome",
         "contenturl": "https://cdn.rawgit.com/nuxeo/nuxeo-codenvy-template/619ab948db5ab5b31f8bbce378b04a511bc0933b/welcome-nuxeo.html"
       }
-    }
+    },
+    "findReplace": [
+      {
+        "files": [
+          "src/main/resources/instance.clid"
+        ],
+        "entries": [
+          {
+            "find": "CLID",
+            "replace": "YOUR_CLID"
+          }
+        ]
+      }
+    ]
   }
 }
