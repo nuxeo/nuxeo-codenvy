@@ -12,8 +12,8 @@
     },
     "description": "Nuxeo Project",
     "runners": {
-      "configs":{
-        "project://nuxeo":{
+      "configs": {
+        "project://nuxeo": {
           "ram": 2048
         }
       },
@@ -30,12 +30,22 @@
       "type": "git"
     }
   },
-  "creator" : {
-    "name" : "Nuxeo",
-    "email" : "vpasquier@nuxeo.com",
-    "accountId" : "accountmiwribbeloxydff4"
+  "creator": {
+    "name": "Nuxeo",
+    "email": "vpasquier@nuxeo.com",
+    "accountId": "accountmiwribbeloxydff4"
   },
-  "actions":{
-    "openFile" : "/src/main/java/org/nuxeo/sample/SampleOperation.java"
+  "actions": {
+    "openFile": "/src/main/java/org/nuxeo/sample/SampleOperation.java",
+    "welcome": {
+      "authenticated": {
+        "title": "Welcome",
+        "contenturl": "https://cdn.rawgit.com/nuxeo/nuxeo-codenvy-template/619ab948db5ab5b31f8bbce378b04a511bc0933b/welcome-nuxeo.html"
+      },
+      "nonauthenticated": {
+        "title": "Welcome",
+        "contenturl": "https://cdn.rawgit.com/nuxeo/nuxeo-codenvy-template/619ab948db5ab5b31f8bbce378b04a511bc0933b/welcome-nuxeo.html"
+      }
+    }
   }
 }
