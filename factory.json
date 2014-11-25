@@ -40,11 +40,11 @@
     "welcome": {
       "authenticated": {
         "title": "Welcome",
-        "contenturl": "https://cdn.rawgit.com/nuxeo/nuxeo-codenvy/master/welcome-nuxeo.html"
+        "contenturl": "https://rawgit.com/nuxeo/nuxeo-codenvy/master/welcome-nuxeo.html"
       },
       "nonauthenticated": {
         "title": "Welcome",
-        "contenturl": "https://cdn.rawgit.com/nuxeo/nuxeo-codenvy/master/welcome-nuxeo.html"
+        "contenturl": "https://rawgit.com/nuxeo/nuxeo-codenvy/master/welcome-nuxeo.html"
       }
     },
     "findReplace": [
