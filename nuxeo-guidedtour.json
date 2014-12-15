@@ -1,0 +1,42 @@
+{
+  "steps": [
+    {
+      "title": "Play Nuxeo",
+      "content": "Let’s start by running the <b>Nuxeo</b>.  We simplify your work by building a default Nuxeo bundle. This Automation operation has been automatically generated to let you code within and deploy it into Nuxeo.",
+      "element": "gwt-debug-MainToolbar/runApp-true",
+      "placement": "BOTTOM",
+      "xOffset": "-17",
+      "actions": [
+        {
+          "action": "action runApp"
+        }
+      ]
+
+    },
+    {
+      "title": "Nuxeo Execution",
+      "content": "Codenvy launches a <b>Docker</b> container for each Nuxeo run. Your Nuxeo bundle is copied into it. Click the URL here to see the application when Nuxeo is started.",
+      "element": "gwt-debug-Application",
+      "placement": "TOP",
+      "xOffset": "100"
+    },
+    {
+      "title": "Edit the Nuxeo bundle",
+      "content": "Edit the project, add contributions, deploy your functionnalities. See following documentation http://doc.nuxeo.com to use Nuxeo API to deploy awesome features! Don't forget to save the file when you’re done.",
+      "element": "gwt-debug-projectExplorerTree-panel",
+      "placement": "RIGHT",
+      "actions": [
+        {
+          "action": "openfile /src/main/java/org/nuxeo/sample/SampleOperation.java"
+        }
+      ]
+    },
+    {
+      "title": "Warning: Temporary Workspace",
+      "content": "This project has been created in a temporary workspace which has 2GB of RAM. Your project will be destroyed if you close the tab or become idle.",
+      "element": "gwt-debug-temporary-workspace-used-toolbar-button",
+      "placement": "BOTTOM",
+      "xOffset": "-20"
+    }
+  ]
+}
