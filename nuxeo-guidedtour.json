@@ -1,28 +1,8 @@
 {
   "steps": [
     {
-      "title": "Play Nuxeo",
-      "content": "Let’s start by running the <b>Nuxeo</b>.  We simplify your work by building a default Nuxeo bundle. This Automation operation has been automatically generated to let you code within and deploy it into Nuxeo.",
-      "element": "gwt-debug-MainToolbar/runApp-true",
-      "placement": "BOTTOM",
-      "xOffset": "-17",
-      "actions": [
-        {
-          "action": "action runApp"
-        }
-      ]
-
-    },
-    {
-      "title": "Nuxeo Execution",
-      "content": "Codenvy launches a <b>Docker</b> container for each Nuxeo run. Your Nuxeo bundle is copied into it. Click the URL here to see the application when Nuxeo is started.",
-      "element": "gwt-debug-Application",
-      "placement": "TOP",
-      "xOffset": "100"
-    },
-    {
-      "title": "Edit the Nuxeo bundle",
-      "content": "Edit the project, add contributions, deploy your functionnalities. See following documentation http://doc.nuxeo.com to use Nuxeo API to deploy awesome features! Don't forget to save the file when you’re done.",
+      "title": "<b>Nuxeo Platform</b> Project Template",
+      "content": "Welcome in the <b>Nuxeo</b> Codenvy Template. We have instantiated for you a project template. When you build it, it produces a jar that can be deployed on a <b>Nuxeo Platform</b> instance. You can use Codenvy to implement the custom java logic that you would not be able to design and configure using <b>Nuxeo Studio</b>, the configuration environment.<ul><li>[https://connect.nuxeo.com/register/#/ Nuxeo Studio Trial]</li><li>[http://doc.nuxeo.com/x/CBU5AQ Getting Started]</li><li>[http://doc.nuxeo.com/x/EIAV Nuxeo Studio Documentation]</li></ul>",
       "element": "gwt-debug-projectExplorerTree-panel",
       "placement": "RIGHT",
       "actions": [
@@ -32,8 +12,41 @@
       ]
     },
     {
+      "title": "Sample Automation Operation",
+      "content": "This class is an sample operation. An operation in <b>Nuxeo</b> is a “command” that is executed on the server. There are hundreds of default operation in the <b>Nuxeo Platform</b>, that can be assembled using <b>Nuxeo Studio</b>. It is sometimes necessary to implement custom operations for instance for integration with third party system. Just adapt the content of the run method to your requirements!<ul><li>[http://doc.nuxeo.com/x/yIKE Upload your custom operation definition in Nuxeo Studio]</li><li>[http://doc.nuxeo.com/x/Go0ZAQ Understand more about custom operations]</li></ul>",
+      "element": "gwt-debug-activeTabButton-SampleOperation",
+      "placement": "BOTTOM",
+      "xOffset": "-20"
+    },
+    {
+      "title": "Start a <b>Nuxeo</b> Server and Deploy your Customisation",
+      "content": "This button can be used to build the project and deploy it on a <b>Nuxeo Platform</b> instance started in a docker container in the cloud so that you can test your development. If you click on the “Run” button below, server will be automatically started.",
+      "element": "gwt-debug-MainToolbar/runApp-true",
+      "placement": "BOTTOM",
+      "xOffset": "-17",
+      "actions": [
+        {
+          "action": "action runApp"
+        }
+      ]
+    },
+    {
+      "title": "Server link",
+      "content": "Click here to access to the <b>Nuxeo Platform</b> instance when it starts.",
+      "element": "gwt-debug-Application",
+      "placement": "TOP",
+      "xOffset": "100"
+    },
+    {
       "title": "Warning: Temporary Workspace",
       "content": "This project has been created in a temporary workspace which has 2GB of RAM. Your project will be destroyed if you close the tab or become idle.",
+      "element": "gwt-debug-temporary-workspace-used-toolbar-button",
+      "placement": "BOTTOM",
+      "xOffset": "-20"
+    },
+    {
+      "title": "Learn How to customise <b>Nuxeo Platform</b>!",
+      "content": "If you haven’t registered to <b>Nuxeo</b>, do not hesitate to do it now. It will give you access to <b>Nuxeo Studio</b> so that you can implement your business logic, with custom forms, workflows, business views etc…  You can also use Codenvy for implementing all the Java part, just go through our documentation for learning more.<ul><li>[http://doc.nuxeo.com Getting Started!]</li></ul>",
       "element": "gwt-debug-temporary-workspace-used-toolbar-button",
       "placement": "BOTTOM",
       "xOffset": "-20"
