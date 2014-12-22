@@ -10,7 +10,7 @@
         "java"
       ],
       "codenvyGuidedTour": [
-        "https://rawgit.com/nuxeo/nuxeo-codenvy/master/nuxeo-guidedtour.json"
+        "https://cdn.rawgit.com/nuxeo/nuxeo-codenvy/master/nuxeo-guided-tour.json"
       ]
     },
     "description": "Nuxeo Project",
