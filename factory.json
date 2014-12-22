@@ -1,7 +1,7 @@
 {"v": "2.0",
   "project": {
     "name": "nuxeo-project",
-    "visibility": "private",
+    "visibility": "public",
     "builders": {
       "default": "maven"
     },
