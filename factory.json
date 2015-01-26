@@ -1,67 +1,78 @@
-{"v": "2.0",
+{
+  "v": "2.1",
+  "creator": {
+    "email": "vpasquier@nuxeo.com",
+    "accountId": "accountmiwribbeloxydff4",
+    "name": "Nuxeo"
+  },
   "project": {
     "name": "nuxeo-project",
     "visibility": "public",
     "builders": {
       "default": "maven"
     },
-    "attributes": {
-      "language": [
-        "java"
-      ],
-      "codenvyGuidedTour": [
-        "https://cdn.rawgit.com/nuxeo/nuxeo-codenvy/master/nuxeo-guided-tour.json"
-      ]
-    },
-    "description": "Nuxeo Project",
     "runners": {
       "configs": {
         "project://nuxeo": {
-          "ram": 2048
+          "ram": 2048,
+          "variables": {},
+          "options": {}
         }
       },
       "default": "project://nuxeo"
     },
-    "type": "maven"
+    "description": "Nuxeo Project",
+    "type": "maven",
+    "attributes": {
+      "codenvyGuidedTour": [
+        "https://cdn.rawgit.com/nuxeo/nuxeo-codenvy/master/nuxeo-guided-tour.json"
+      ],
+      "language": [
+        "java"
+      ]
+    }
   },
   "source": {
     "project": {
       "location": "https://github.com/nuxeo/nuxeo-codenvy-template",
+      "type": "git",
       "parameters": {
         "branch": "master"
-      },
-      "type": "git"
-    }
-  },
-  "creator": {
-    "name": "Nuxeo",
-    "email": "vpasquier@nuxeo.com",
-    "accountId": "accountmiwribbeloxydff4"
-  },
-  "actions": {
-    "openFile": "/src/main/java/org/nuxeo/sample/SampleOperation.java",
-    "welcome": {
-      "authenticated": {
-        "title": "Welcome",
-        "contenturl": "https://rawgit.com/nuxeo/nuxeo-codenvy/master/welcome-nuxeo.html"
-      },
-      "nonauthenticated": {
-        "title": "Welcome",
-        "contenturl": "https://rawgit.com/nuxeo/nuxeo-codenvy/master/welcome-nuxeo.html"
       }
     },
-    "findReplace": [
-      {
-        "files": [
-          "src/main/resources/instance.clid"
-        ],
-        "entries": [
-          {
+    "runners": {}
+  },
+  "ide": {
+    "onProjectOpened": {
+      "actions": [
+        {
+          "id": "openFile",
+          "properties": {
+            "file": "/src/main/java/org/nuxeo/sample/SampleOperation.java"
+          }
+        },
+        {
+          "id": "findReplace",
+          "properties": {
+            "in": "src/main/resources/instance.clid",
             "find": "CLID",
             "replace": "YOUR_CLID"
           }
-        ]
-      }
-    ]
+        }
+      ]
+    },
+    "onAppLoaded": {
+      "actions": [
+        {
+          "id": "openWelcomePage",
+          "properties": {
+            "authenticatedContentUrl": "https://rawgit.com/nuxeo/nuxeo-codenvy/master/welcome-nuxeo.html",
+            "authenticatedTitle": "Welcome",
+            "nonAuthenticatedContentUrl": "https://rawgit.com/nuxeo/nuxeo-codenvy/master/welcome-nuxeo.html",
+            "nonAuthenticatedTitle": "Welcome"
+          }
+        }
+      ]
+    }
   }
 }
