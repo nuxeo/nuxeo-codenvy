@@ -24,7 +24,8 @@
       "content": "This button can be used to build the project and deploy it on a <b>Nuxeo Platform</b> instance started in a docker container in the cloud so that you can test your development. If you click on the “Run” button below, server will be automatically started.",
       "element": "gwt-debug-MainToolbar/runApp-true",
       "placement": "LEFT",
-      "xOffset": "11",
+      "xOffset": "20",
+      "yOffset": "-12",
       "actions": [
         {
           "action": "trigger runApp"
@@ -36,7 +37,8 @@
       "content": "Click here to access to the <b>Nuxeo Platform</b> instance when it starts.<hr> Default credentials are Administrator/Administrator",
       "element": "gwt-debug-Terminal-tab",
       "placement": "TOP",
-      "xOffset": "100"
+      "xOffset": "100",
+      "yOffset": "167"
     },
     {
       "title": "Warning: Temporary Workspace",
